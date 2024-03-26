@@ -37,7 +37,7 @@ with open('context.json', 'r') as f:
 conversation = ConversationChain(
     llm=llm,
     memory = memory,
-    verbose=True
+    verbose=False
 )
 
 tool = YouTubeSearchTool()
