@@ -57,9 +57,8 @@ while True:
     output = conversation.predict(input=input_text)
     print(output)
 
-    yt_search_query = conversation.predict(input='For the following text, extract a 5 word title summary that represents the topic as a whole: '+output)
-
-    youtube_results = tool.run(yt_search_query+', 2')
+    yt_search_query = conversation.predict(input='For the following text wrapped in triple backticks, extract and output a 5 word title summary that is very specific to the current problem being solved and would yield useful results if searched on youtube: ```'+output+'```')
+    youtube_results = tool.run(yt_search_query.replace(',', ''))
     print("For your references, here are some youtube videos: ")
     print(youtube_results)
 
